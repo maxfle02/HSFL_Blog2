@@ -1,4 +1,89 @@
 <!DOCTYPE html>
 <html>
+  <title>Anmeldung HSFL-Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      
+    }
     
+    h1 {
+      text-align: center;
+    }
+    
+    .backgrlog {
+      
+      width: 500px;
+      height: 300px;
+      background: white;
+      border: 2px solid;
+      border-color: darkorange;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+     
+      align-items: center;
+      text-align: center;
+     
+      
+     
+     
+    
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+
+     
+    }
+    
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background: darkblue;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    
+    input[type="submit"]:hover {
+      background: blue;
+    }
+  </style>
+</head>
+<body >
+  <div class="backgrlog">
+    <h1>Login</h1>
+    <form>
+      <div class="form-group">
+        <label for="username">Benutzername:</label>
+        <input  type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <input type="submit" value="Anmelden">
+    </form>
+  </div>
+</body>
 </html>
