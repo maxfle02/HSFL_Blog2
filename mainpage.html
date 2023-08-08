@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,37 +8,55 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+  <div id="app">
     <div class="header">
-        <h1>HSFL-Blog</h1>
-        <p>Blog der Hochschule Flensburg</p>
-      </div>
+      <h1>HSFL-Blog</h1>
+      <p>Blog der Hochschule Flensburg</p>
+    </div>
 
-      <div class="topnav">
-        <a href="#">Startseite</a>
-        <a href="#">Profil</a>
-        <a href="#">Gespeicherte</a>
-        <a href="#" style="float:right">Log out</a>
-      </div>
+    <div class="topnav">
+      <a href="#">Startseite</a>
+      <a href="#">Profil</a>
+      <a href="#">Gespeicherte</a>
+      <a href="#" style="float:right">Log out</a>
+    </div>
 
-      <div class="row">
-        <div class="leftcolumn">
-          <div class="card">
-            <h2>Borussia Dortmund wird Deutscher Meister</h2>
-            <h5>VencedorParis, May 27, 2023</h5>
-            <p>Super Spiel gegen Mainz 05</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
-          <div class="card">
-            <h2>Thomas Tuchel entlassen</h2>
-            <h5>Brazzo69, May 27, 2024</h5>
-            <p>Danke für alles Thomas</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>Borussia Dortmund wird Deutscher Meister</h2>
+          <h5>VencedorParis, May 27, 2023</h5>
+          <p>Super Spiel gegen Mainz 05</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+        <div class="card">
+          <h2>Thomas Tuchel entlassen</h2>
+          <h5>Brazzo69, May 27, 2024</h5>
+          <p>Danke für alles Thomas</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
       </div>
-      
-      <div class="footer">
-        <h3>Sergey Hellwig & Max Flemming</h3>
-      </div>
+    </div>
+    
+    <div class="footer">
+      <h3>Sergey Hellwig & Max Flemming</h3>
+    </div>
+  </div>
 </body>
+
+
+    
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      posts: [
+        { title: 'Borussia Dortmund wird Deutscher Meister', author: 'VencedorParis', date: 'May 27, 2023', content: 'Super Spiel gegen Mainz 05' },
+        { title: 'Thomas Tuchel entlassen', author: 'Brazzo69', date: 'May 27, 2024', content: 'Danke für alles Thomas' }
+      ]
+    }
+  });
+</script>
+
 </html>
