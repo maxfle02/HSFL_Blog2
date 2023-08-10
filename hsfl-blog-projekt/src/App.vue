@@ -1,17 +1,7 @@
 <template>
-   <div class="header">
-      <h1>HSFL-Blog</h1>
-      <p>Blog der Hochschule Flensburg</p>
-    </div>
-  
   <nav>
-    <div>
-    <router-link to="/">Startseite</router-link> |
-    <router-link to="/profile">Mein Account</router-link> |
-    <router-link to="/bibliothek">Bibliothek</router-link> 
-    </div>
-    <router-link to="/logging">Log Out</router-link>
-
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
 </template>
@@ -26,13 +16,7 @@
 }
 
 nav {
-  
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  background-color: #bad0f5;
-  text-align: left;
+  padding: 30px;
 }
 
 nav a {
@@ -41,23 +25,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #bf654e;
-}
-.header h1 {
-    font-size: 50px;
-    margin-bottom: 5px; 
-    margin-top: px;
-  }
-  .header {
-    margin-top: 0;
-    padding: 2px;
-    text-align: center;
-    background: white;
-    color: black;
-    
-  }
-  .header p {
-  margin-top: 0;
- 
+  color: #42b983;
 }
 </style>
