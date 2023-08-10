@@ -5,10 +5,10 @@
    </div>
  
  <nav>
-  <div class="nav-left">
+  
     <router-link to="/blog">Blog verfassen</router-link>
-</div>
-   <div class="centered-links">
+
+   <div class="weight">
    <router-link to="/">Startseite</router-link> |
    <router-link to="/profile">Mein Account</router-link> |
    <router-link to="/bibliothek">Bibliothek</router-link> 
@@ -37,6 +37,9 @@ nav {
  padding: 15px;
  background-color: #bad0f5;
  text-align: left;
+}
+.weight {
+  font-size: 20px;
 }
 
 nav a {
