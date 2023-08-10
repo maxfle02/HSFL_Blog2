@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <button @click="createNewPost">New Post</button> <!-- Neuer Button -->
-    <img alt="Vue logo" src="../assets/logo.png">
+
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -30,15 +30,15 @@ export default {
   top: 200px;
   left: 10px;
   padding: 10px 15px;
-  background-color: #42b983; /* Farbe des Links */
-  color: white;
+  background-color: #efc3a8; /* Farbe des Links */
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .home button:hover {
-  background-color: #357a65; /* Dunklere Farbe beim Überfahren */
+  background-color: #e37120; /* Dunklere Farbe beim Überfahren */
 }
 
 </style>
