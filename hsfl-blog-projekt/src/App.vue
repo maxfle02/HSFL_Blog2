@@ -5,7 +5,10 @@
    </div>
  
  <nav>
-   <div>
+  <div class="nav-left">
+    <router-link to="/blog">Blog verfassen</router-link>
+</div>
+   <div class="centered-links">
    <router-link to="/">Startseite</router-link> |
    <router-link to="/profile">Mein Account</router-link> |
    <router-link to="/bibliothek">Bibliothek</router-link> 
@@ -25,6 +28,7 @@
  color: #2c3e50;
 }
 
+
 nav {
  
  display: flex; 
@@ -43,6 +47,7 @@ nav a {
 nav a.router-link-exact-active {
  color: #bf654e;
 }
+
 .header h1 {
    font-size: 50px;
    margin-bottom: 5px; 
@@ -60,4 +65,5 @@ nav a.router-link-exact-active {
  margin-top: 0;
 
 }
+
 </style>

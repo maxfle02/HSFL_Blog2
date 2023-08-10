@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <button @click="createNewPost">New Post</button> <!-- Neuer Button -->
-
+    
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
