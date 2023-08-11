@@ -23,21 +23,5 @@ export default {
   }
 }
 </script>
-<style>
-.home button {
-  position: absolute;
-  top: 200px;
-  left: 10px;
-  padding: 10px 15px;
-  background-color: #efc3a8; /* Farbe des Links */
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
-.home button:hover {
-  background-color: #e37120; /* Dunklere Farbe beim Überfahren */
-}
 
-</style>
