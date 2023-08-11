@@ -2,7 +2,7 @@
   <div class="row">
     <div class="leftcolumn">
       <div class="card">
-        <h2>Borussia Dortmund wird Deutscher Meister</h2>
+        <h2>Borussia Dortmund wird Deutscher Meister im Popeln</h2>
         <h5>VencedorParis, May 27, 2023</h5>
         <p>Super Spiel gegen Mainz 05</p>
         <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
@@ -58,8 +58,11 @@ props: {
 
 
 <style scoped>
-h3 {
-margin: 40px 0 0;
+h2 {
+margin-top: 0px ;
+margin-bottom: -18px;
+text-decoration: underline;
+
 }
 ul {
 list-style-type: none;
@@ -73,12 +76,12 @@ a {
 color: #42b983;
 }
 .card {
-  
+
   text-align: left;
   margin: 50px;
   margin-left: 30px;
   margin-right: 350px;
-  border: 1px solid #000;
+  border: 1px solid #ff8000;
   border-radius: 30px;
   padding: 20px;  
 
