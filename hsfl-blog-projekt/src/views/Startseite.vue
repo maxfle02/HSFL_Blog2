@@ -14,13 +14,7 @@ export default {
   components: {
     HelloWorld
   },
-  methods: {
-    createNewPost() {
-      // Code, um einen neuen Beitrag zu erstellen oder zur Beitragserstellungsseite zu navigieren
-      console.log('New Post Button was clicked!');
-      alert('Klappt')
-    }
-  }
+ 
 }
 </script>
 
