@@ -7,9 +7,9 @@
         <p>Super Spiel gegen Mainz 05</p>
         <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         <div class="blog-actions">
-            <button @click="likePost">Gefällt mir</button>
-            <button @click="commentPost">Kommentieren</button>
-            <button @click="bookmarkPost">Speichern</button>
+            <button @click="likePost"><i class="fas fa-thumbs-up"></i>Gefällt mir</button>
+            <button @click="commentPost"> <i class="fas fa-comment"></i>Kommentieren</button>
+            <button @click="bookmarkPost"><i class="fas fa-bookmark"></i>Speichern</button>
           </div>
       </div>
       
@@ -19,9 +19,9 @@
         <p>Danke für alles Thomas</p>
         <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         <div class="blog-actions">
-            <button @click="likePost">Gefällt mir</button>
-            <button @click="commentPost">Kommentieren</button>
-            <button @click="bookmarkPost">Speichern</button>
+            <button @click="likePost"><i class="fas fa-thumbs-up"></i>Gefällt mir</button>
+            <button @click="commentPost"><i class="fas fa-comment"></i>Kommentieren</button>
+            <button @click="bookmarkPost"><i class="fas fa-bookmark"></i>Speichern</button>
           </div>
       </div>
     
@@ -99,9 +99,12 @@ button {
 .blog-actions {
     display: flex;
    
-
+  
     gap: 10px;
     border-radius: 55px;
+}
+.blog-actions button i {
+  margin-right: 5px;
 }
 
 

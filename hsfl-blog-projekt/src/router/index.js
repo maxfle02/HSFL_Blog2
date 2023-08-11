@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/Startseite.vue'
 
+
 const routes = [
   {
     path: '/blog',
