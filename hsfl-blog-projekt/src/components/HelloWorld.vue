@@ -50,7 +50,7 @@ props: {
         bookmarkPost() {
        
             console.log("Beitrag gebookmarked!");
-            alert('Beitrag gebookmarked!')
+            alert('Beitrag gespeichert!')
         }
     }
 }
