@@ -108,7 +108,7 @@ button {
 }
 .blog-actions button i {
   margin-right: 5px;
-  color: orange;
+  color: red;
 }
 
 
