@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   data() {
@@ -32,41 +31,6 @@ export default {
       newPassword: ''
     };
   },
-  methods: {
-    openChangePasswordModal() {
-      this.isChangePasswordModalOpen = true;
-    },
-    closeChangePasswordModal() {
-      this.isChangePasswordModalOpen = false;
-      this.currentPassword = '';
-      this.newPassword = '';
-    },
-    async handleChangePassword() {
-      const changePasswordData = {
-        currentPassword: this.currentPassword,
-        newPassword: this.newPassword
-      };
-
-      try {
-        // Sende eine PATCH-Anfrage an den Backend-Server
-        const response = await axios.patch('https://localhost:7123/api/blog/users/{id}/password', changePasswordData);
-
-        // Überprüfe die Antwort und zeige eine Benachrichtigung an
-        if (response.status === 200) {
-          console.log('Passwort erfolgreich geändert');
-          // Hier könntest du eine Benachrichtigung anzeigen, dass das Passwort geändert wurde
-
-          this.closeChangePasswordModal();
-        } else {
-          console.error('Fehler beim Ändern des Passworts');
-          // Hier könntest du eine Benachrichtigung anzeigen, dass etwas schief gelaufen ist
-        }
-      } catch (error) {
-        console.error('Fehler beim Ändern des Passworts', error);
-        // Hier könntest du eine Benachrichtigung anzeigen, dass etwas schief gelaufen ist
-      }
-    }
-  }
 };
 </script>
 <style scoped>
