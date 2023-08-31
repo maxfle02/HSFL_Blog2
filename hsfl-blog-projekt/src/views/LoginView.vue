@@ -25,7 +25,9 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      loginStatus: null, // Neue Datenvariable für den Anmeldestatus
+      loginStatusMessage: '' // Neue Datenvariable für die Bestätigungsnachricht
     };
   },
   methods: {
@@ -41,20 +43,23 @@ export default {
           const user = users.find(u => u.benutzernamen === loginData.username && u.passwort === loginData.password);
           
           if (user) {
-            localStorage.setItem('loggedInUsername', user.benutzernamen); // Speichere den Benutzernamen im Local Storage
-            console.log('Anmeldung erfolgreich', user);
+            localStorage.setItem('loggedInUsername', user.benutzernamen);
+            this.loginStatus = 'success'; // Anmeldestatus auf Erfolg setzen
+            this.loginStatusMessage = 'Anmeldung erfolgreich!'; // Bestätigungsnachricht
           } else {
-            console.error('Anmeldung fehlgeschlagen: Benutzer nicht gefunden oder falsches Passwort');
+            this.loginStatus = 'error'; // Anmeldestatus auf Fehler setzen
+            this.loginStatusMessage = 'Anmeldung fehlgeschlagen: Benutzer nicht gefunden oder falsches Passwort';
           }
         })
         .catch(error => {
           console.error('Fehler beim Abrufen der Benutzerdaten', error);
+          this.loginStatus = 'error'; // Anmeldestatus auf Fehler setzen
+          this.loginStatusMessage = 'Fehler beim Abrufen der Benutzerdaten';
         });
     }
   }
 };
 </script>
-
 
 
 <style scoped>
