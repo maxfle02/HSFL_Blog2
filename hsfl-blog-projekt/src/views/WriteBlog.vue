@@ -8,23 +8,38 @@
   </template>
   
   <script>
-  export default {
-    data() {
-      return {
-        blogtitle: '',
-        blogContent: ''
-      };
-    },
-    methods: {
-      submitPost() {
-        // Hier können Sie den Blogbeitrag speichern oder verarbeiten
-        console.log(this.blogtitle, this.blogContent);
-        alert('Dieser Blog läuft')
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      blogtitle: '',
+      blogContent: ''
+    };
+  },
+  methods: {
+    async submitPost() {
+      try {
+  const response = await axios.post('https://localhost:7123/api/blog', {
+    title: this.blogtitle,
+    content: this.blogContent
+  });
+
+
+        console.log(response.data);
+        alert('Blog-Eintrag erfolgreich hinzugefügt');
+
+        this.blogtitle = '';
+        this.blogContent = '';
+      } catch (error) {
+        console.error('Fehler beim Hinzufügen des Blog-Eintrags:', error);
+        alert('Fehler beim Hinzufügen des Blog-Eintrags');
       }
     }
+  }
 }
+</script>
 
-  </script>
   
   <style scoped>
   .write-blog {

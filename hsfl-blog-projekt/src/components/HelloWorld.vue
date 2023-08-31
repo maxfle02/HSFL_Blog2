@@ -1,60 +1,52 @@
 <template>
   <div class="row">
     <div class="leftcolumn">
-      <div class="card">
-        <h2>Borussia Dortmund wird Deutscher Meister im Popeln</h2>
-        <h5>VencedorParis, May 27, 2023</h5>
-        <p>Super Spiel gegen Mainz 05</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <div class="card" v-for="post in blogPosts" :key="post.id">
+        <h2>{{ post.title }}</h2>
+        <h4>{{ post.autor }}, {{ formatDate(post.createdAt) }}</h4> <!-- Verwendung der formatDate-Methode -->
+        <p>{{ post.inhalt }}</p>
         <div class="blog-actions">
-            <button @click="likePost"><i class="fas fa-thumbs-up"></i>Gefällt mir</button>
-            <button @click="commentPost"> <i class="fas fa-comment"></i>Kommentieren</button>
-            <button @click="bookmarkPost"><i class="fas fa-bookmark"></i>Speichern</button>
-          </div>
+          <button @click="likePost(post.id)"><i class="fas fa-thumbs-up"></i>Gefällt mir</button>
+          <button @click="commentPost(post.id)"> <i class="fas fa-comment"></i>Kommentieren</button>
+          <button @click="bookmarkPost(post.id)"><i class="fas fa-bookmark"></i>Speichern</button>
+          <h4>Likes: {{ post.likes }}</h4>
+        </div>
       </div>
-      
-      <div class="card">
-        <h2>Thomas Tuchel entlassen</h2>
-        <h5>Brazzo69, May 27, 2024</h5>
-        <p>Danke für alles Thomas</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        <div class="blog-actions">
-            <button @click="likePost"><i class="fas fa-thumbs-up"></i>Gefällt mir</button>
-            <button @click="commentPost"><i class="fas fa-comment"></i>Kommentieren</button>
-            <button @click="bookmarkPost"><i class="fas fa-bookmark"></i>Speichern</button>
-          </div>
-      </div>
-    
     </div>
   </div>
 </template>
 
 <script>
-export default {
-name: 'HelloWorld',
-props: {
-  msg: String
+import axios from 'axios';
 
-},
-    methods: {
-        likePost() {
-       
-            console.log("Beitrag geliked!");
-            alert('Post wurde geliket')
-        },
-        commentPost() {
-        
-            console.log("Kommentier-Option ausgewählt!");
-            alert('Post wird kommentiert')
-        },
-        bookmarkPost() {
-       
-            console.log("Beitrag gebookmarked!");
-            alert('Beitrag gespeichert!')
-        }
-    }
-}
+export default {
+  data() {
+    return {
+      blogPosts: [],
+    };
+  },
+  mounted() {
+    this.fetchBlogPosts();
+  },
+  methods: {
+    async fetchBlogPosts() {
+      try {
+        const response = await axios.get('https://localhost:7123/blog');
+        this.blogPosts = response.data;
+      } catch (error) {
+        console.error('Fehler beim Abrufen der Blog-Posts:', error);
+      }
+    },
+    formatDate(dateTime) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateTime).toLocaleDateString(undefined, options);
+    },
+
+  },
+};
 </script>
+
+
 
 
 <style scoped>
