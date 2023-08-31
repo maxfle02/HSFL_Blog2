@@ -1,13 +1,15 @@
 <template>
-    <div class="write-blog">
-      <h2>Blog verfassen</h2>
+  <div class="write-blog">
+    <h2>Blog verfassen</h2>
+    <form @submit.prevent="submitPost">
       <textarea class="title-input" v-model="blogtitle" placeholder="Schreiben Sie hier ihren Titel rein"></textarea>
       <textarea v-model="blogContent" placeholder="Schreiben Sie hier Ihren Blogbeitrag..."></textarea>
-      <button @click="submitPost">Absenden</button>
-    </div>
-  </template>
-  
-  <script>
+      <button type="submit">Absenden</button>
+    </form>
+  </div>
+</template>
+
+<script>
 import axios from 'axios';
 
 export default {
@@ -19,21 +21,25 @@ export default {
   },
   methods: {
     async submitPost() {
+      // Erstelle ein BlogPostViewModel-Objekt für die Anfrage
+      const postData = {
+        Title: this.blogtitle,
+        Inhalt: this.blogContent
+      };
+      
       try {
-  const response = await axios.post('https://localhost:7123/api/blog', {
-    title: this.blogtitle,
-    content: this.blogContent
-  });
+        // Sende die Daten an den Server
+        await axios.post('https://localhost:7123/blog', postData);
 
-
-        console.log(response.data);
-        alert('Blog-Eintrag erfolgreich hinzugefügt');
-
+        // Zurücksetzen der Eingabefelder nach erfolgreichem Post
         this.blogtitle = '';
         this.blogContent = '';
+        
+        // Aktualisieren der Benutzeroberfläche oder Weiterleitung
+        // je nach Anforderungen
       } catch (error) {
-        console.error('Fehler beim Hinzufügen des Blog-Eintrags:', error);
-        alert('Fehler beim Hinzufügen des Blog-Eintrags');
+        console.error('Fehler beim Posten des Blogbeitrags:', error);
+        // Hier kannst du auf einen Fehler reagieren, z.B. Fehlermeldung anzeigen
       }
     }
   }
