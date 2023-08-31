@@ -31,7 +31,7 @@ export default {
   methods: {
     async fetchBlogPosts() {
       try {
-        const response = await axios.get('https://localhost:7123/blog');
+        const response = await axios.get('https://localhost:7123/api/blog/blogs');
         this.blogPosts = response.data;
       } catch (error) {
         console.error('Fehler beim Abrufen der Blog-Posts:', error);
@@ -41,8 +41,18 @@ export default {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return new Date(dateTime).toLocaleDateString(undefined, options);
     },
-
-  },
+    async likePost(postId) {
+      try {
+        await axios.post(`https://localhost:7123/like/${postId}`);
+        const updatedPost = this.blogPosts.find(post => post.id === postId);
+        if (updatedPost) {
+          updatedPost.likes += 1;
+        }
+      } catch (error) {
+        console.error('Fehler beim Liken des Beitrags:', error);
+      }
+    },
+  }
 };
 </script>
 

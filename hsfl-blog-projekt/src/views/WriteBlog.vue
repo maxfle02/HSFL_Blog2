@@ -1,13 +1,15 @@
 <template>
-    <div class="write-blog">
-      <h2>Blog verfassen</h2>
+  <div class="write-blog">
+    <h2>Blog verfassen</h2>
+    <form @submit.prevent="submitPost">
       <textarea class="title-input" v-model="blogtitle" placeholder="Schreiben Sie hier ihren Titel rein"></textarea>
       <textarea v-model="blogContent" placeholder="Schreiben Sie hier Ihren Blogbeitrag..."></textarea>
-      <button @click="submitPost">Absenden</button>
-    </div>
-  </template>
-  
-  <script>
+      <button type="submit">Absenden</button>
+    </form>
+  </div>
+</template>
+
+<script>
 import axios from 'axios';
 
 export default {
@@ -18,23 +20,22 @@ export default {
     };
   },
   methods: {
-    async submitPost() {
-      try {
-  const response = await axios.post('https://localhost:7123/api/blog', {
-    title: this.blogtitle,
-    content: this.blogContent
-  });
+    submitPost() {
+      const postData = {
+        Title: this.blogtitle,
+        Content: this.blogContent
+      };
 
+      axios.post('https://localhost:7123/api/blog/add', postData)
+    .then(response => {
+        // Handle success, e.g., show a success message
+        console.log('Blog post added:', response.data);
+    })
+    .catch(error => {
+        // Handle error, e.g., show an error message
+        console.error('Error adding blog post:', error);
+    });
 
-        console.log(response.data);
-        alert('Blog-Eintrag erfolgreich hinzugefügt');
-
-        this.blogtitle = '';
-        this.blogContent = '';
-      } catch (error) {
-        console.error('Fehler beim Hinzufügen des Blog-Eintrags:', error);
-        alert('Fehler beim Hinzufügen des Blog-Eintrags');
-      }
     }
   }
 }
