@@ -1,23 +1,26 @@
 <template>
   <div class="header">
-     <h1>HSFL-Blog</h1>
-     <p>Blog der Hochschule Flensburg</p>
-   </div>
- 
- <nav>
-  
-    <router-link to="/blog">Blog verfassen</router-link>
+    <h1>HSFL-Blog</h1>
+    <p>Blog der Hochschule Flensburg</p>
+  </div>
 
-   <div class="weight">
-   <router-link to="/">Startseite</router-link> |
-   <router-link to="/profile">Mein Account</router-link> |
-   <router-link to="/bibliothek">Bibliothek</router-link> 
-   </div>
-   <router-link to="/logging">Log Out</router-link>
-
- </nav>
- <router-view/>
+  <nav>
+    <div class="weight">
+      <router-link to="/">Startseite</router-link> |
+      <router-link to="/profile">Mein Account</router-link> |
+      <router-link to="/bibliothek">Bibliothek</router-link>
+    </div>
+    <div>
+      <router-link to="/login">Login</router-link> |
+      <router-link to="/logging">Log Out</router-link>
+    </div>
+  </nav>
+  <router-view />
 </template>
+
+<style>
+/* ... dein vorhandener CSS-Stil ... */
+</style>
 
 <style>
 #app {

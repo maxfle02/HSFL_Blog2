@@ -31,7 +31,7 @@ export default {
   methods: {
     async fetchBlogPosts() {
       try {
-        const response = await axios.get('https://localhost:7123/blog');
+        const response = await axios.get('https://localhost:7123/api/blog/blogs');
         this.blogPosts = response.data;
       } catch (error) {
         console.error('Fehler beim Abrufen der Blog-Posts:', error);
